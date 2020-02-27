@@ -32,3 +32,29 @@ select = [False] * N  # 이걸로 어떤 상담 할지 결정
 maximum = 0  # 최대값 
 consult(0)
 print(maximum)
+
+
+
+# 다른사람꺼(속도 엄청 빠름)
+# n = int(input())
+# t=[]
+# p=[]
+# dp=[]
+# for i in range(n):
+#     temp_t ,temp_p = map(int,input().split())
+#     t.append(temp_t)
+#     p.append(temp_p)
+#     dp.append(temp_p)
+
+# dp.append(0)
+
+# #print('t',t)
+# #print('p',p)
+
+# for i in range(n-1,-1,-1):
+#     if t[i]+i>n:
+#         dp[i]=dp[i+1]
+#     else:
+#         dp[i] = max(dp[i+1],p[i]+dp[i+t[i]])
+
+# print(dp[0])
