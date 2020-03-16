@@ -44,7 +44,7 @@ for tc in range(1, int(input())+1):
     # 가로탐색
     for i in range(N):
         for j in range(N-M+1):
-            if arr[i][j] == arr[i][j+M-1]
-
+            if arr[i][j] == arr[i][j+M-1]:
+                
 
 #
