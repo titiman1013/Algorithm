@@ -1,0 +1,44 @@
+/* 03_home.css */
+/* 아래에 코드를 작성해 주세요. */
+body {
+    height: 10000px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: brown;
+    height: 80px;
+    /* line-height: 80px; */
+}
+
+nav::after {
+    content: "";
+    display: block;
+    clear: right;
+}
+
+.nav-logo {
+    width: 100px;
+}
+
+.nav-items {
+    float: right;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline;
+    color: gray;
+}
+
+.nav-item:hover {
+    color: black;
+    cursor: pointer
+}
+
+header {
+    margin-top: 80px;
+}
