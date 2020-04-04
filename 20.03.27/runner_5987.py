@@ -1,40 +1,49 @@
 import sys; sys.stdin = open("runner.txt", "r")
 
-# for tc in range(1, int(input())+1):
-#     N, M = map(int, input().split())
-#     arr = [list(map(int, input(). split())) for _ in range(M)]
-    
+# def run(cnt):
+#     global N
+#     if cnt == N:
+#         pass
 
 
+for tc in range(1, int(input())+1):
+    N, M = map(int, input().split())
+    # N은 사람수 M은 정보개수
+    arr = [list(map(int, input(). split())) for _ in range(M)]
+
+res = 1
+for i in range(1, 17):
+    res *= i
+print(res//2)
 
 
-#
-from math import factorial as f
-MOD = 10**6+3
+# #
+# from math import factorial as f
+# MOD = 10**6+3
  
-def solve(flag):
-    if flag == full:
-        return 1
+# def solve(flag):
+#     if flag == full:
+#         return 1
  
-    if dp[flag] != -1:
-        return dp[flag]
-    dp[flag] = 0
+#     if dp[flag] != -1:
+#         return dp[flag]
+#     dp[flag] = 0
  
-    for i in range(n):
-        if (flag & 1<<i) == 0 and (flag & needs[i]) == needs[i]:
-            dp[flag] += solve(flag | 1<<i)
-    return dp[flag]
+#     for i in range(n):
+#         if (flag & 1<<i) == 0 and (flag & needs[i]) == needs[i]:
+#             dp[flag] += solve(flag | 1<<i)
+#     return dp[flag]
  
-for T in range(1,int(input())+1):    
-    n,m = map(int,input().split())
-    needs = [0]*16
-    dp = [-1]*(1<<n)
+# for T in range(1,int(input())+1):    
+#     n,m = map(int,input().split())
+#     needs = [0]*16
+#     dp = [-1]*(1<<n)
  
-    for i in range(m):
-        a,b = map(int,input().split())
-        needs[b-1] |= 1<<(a-1)
-    full = (1<<n)-1    
-    print('#%d %d' %(T,solve(0)))
+#     for i in range(m):
+#         a,b = map(int,input().split())
+#         needs[b-1] |= 1<<(a-1)
+#     full = (1<<n)-1    
+#     print('#%d %d' %(T,solve(0)))
 
 
 # ##

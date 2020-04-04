@@ -54,7 +54,9 @@ for tc in range(1, int(input())+1):
                     cnt = 0
                     dis = 0
                     while stack:
-                        x, y = stack.pop()
+                        if dis:
+                            break
+                        x, y = stack.pop(0)
                         cnt = arr[x][y] + 1
                         for k in range(4):
                             nx = x + dx[k]
@@ -63,9 +65,11 @@ for tc in range(1, int(input())+1):
                                 if arr[nx][ny] == '3':
                                     res = 1
                                     dis = arr[x][y] - 1
+                                    break
                                 elif arr[nx][ny] == '0':
                                     stack.append((nx, ny))
                                     arr[nx][ny] = cnt
+                       
                     break
         else: break
               
