@@ -32,8 +32,8 @@ def check():
             nx = x + dx[k]
             ny = y + dy[k]
             if 0 <= nx < N and 0 <= ny < M:
-                if garden[nx][ny][0] == 'water':
-                    continue
+                # if garden[nx][ny][0] == 'water':
+                #     continue
                 if garden[nx][ny][0] == 0:
                     garden[nx][ny][0] = garden[x][y][0]
                     garden[nx][ny][1] = garden[x][y][1] + 1
