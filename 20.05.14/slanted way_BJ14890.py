@@ -13,13 +13,14 @@ for tc in range(1, int(input())+1):
         for j in range(N):
             if j == 0:    # 처음 땅높이
                 slant = arr[i][j]
+                flat += 1
             else:       # 처음이 아닐때
                 if arr[i][j] != slant:      # 경사가 생길때
                     if cnt: 
                         # print('break', i, j)
                         break       # 이미 경사진길 상태이면 break
                     else:       # 경사진길을 만날때
-                        if abs(slant - arr[i][j]) > 1:      # 땅높이가 2이상 차이나면 break
+                        if abs(slant - arr[i][j]) != 1:      # 땅높이가 2이상 차이나면 break
                             # print('break', i, j)
                             break
                         else:       # 정상적인 경사일때 갯수 세주기 시작
@@ -37,7 +38,7 @@ for tc in range(1, int(input())+1):
                                     cnt = 0
                                     flat = -L + 1
                 else:
-                    if cnt:     # 경사진 곳일때
+                    if cnt:     # 경사면 일때
                         cnt += 1
                         if cnt == L:
                             cnt = 0
@@ -48,24 +49,25 @@ for tc in range(1, int(input())+1):
             if cnt:
                 continue
             res += 1
-            # print(i)
+    #         print(i)
     # print('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ')
     
     # 세로
     for i in range(N):
         slant = 0
         cnt = 0
-        flat = 1
+        flat = 0
         for j in range(N):
             if j == 0:    
                 slant = arr[j][i]
+                flat += 1
             else:       
                 if arr[j][i] != slant:     
                     if cnt: 
                         # print('break', i, j)
                         break       
                     else:    
-                        if abs(slant - arr[j][i]) > 1:    
+                        if abs(slant - arr[j][i]) != 1:    
                             # print('break', i, j)
                             break
                         else:      
@@ -97,3 +99,43 @@ for tc in range(1, int(input())+1):
             # print(i)
 
     print(f'#{tc} {res}')
+# print(abs(2-3))
+
+# 반례 답
+# 10
+# 2
+# 2
+# 7
+# 7
+# 1
+# 5
+# 5
+# 6
+# 4
+
+# 반례2 답
+# 11
+# 6
+# 4
+# 6
+# 4
+# 11
+# 10
+# 11
+# 10
+# 3
+# 5
+# 1
+# 8
+# 5
+# 10
+# 7
+# 5
+# 4
+# 10
+
+# 반례3 답
+# 3
+# 2
+# 1
+# 9
