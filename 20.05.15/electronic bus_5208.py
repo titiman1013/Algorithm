@@ -11,7 +11,7 @@ def go(now, gas, cnt):
         # print('m')
         return
 
-    if now == len(arr) - 1:
+    if now == len(arr):
         if cnt < res:
             res = cnt
             # print(now, gas, cnt)
