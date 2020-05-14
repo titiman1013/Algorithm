@@ -26,6 +26,7 @@ for tc in range(1, int(input())+1):
                         else:       # 정상적인 경사일때 갯수 세주기 시작
                             if arr[i][j] - slant > 0:       # 경사가 오르막이면
                                 if flat < L:
+                                    # print(flat)
                                     # print('break', i, j)
                                     break
                                 else:
@@ -36,13 +37,13 @@ for tc in range(1, int(input())+1):
                                 cnt += 1
                                 if cnt == L:
                                     cnt = 0
-                                    flat = -L + 1
+                                    flat = 0
                 else:
                     if cnt:     # 경사면 일때
                         cnt += 1
                         if cnt == L:
                             cnt = 0
-                            flat = -L + 1
+                            flat = 0
                     else:       # 평지일때
                         flat += 1
         else:       # 스무스하게 지나오면
@@ -83,13 +84,13 @@ for tc in range(1, int(input())+1):
                                 cnt += 1
                                 if cnt == L:
                                     cnt = 0
-                                    flat = -L + 1
+                                    flat = 0
                 else:
                     if cnt:
                         cnt += 1
                         if cnt == L:
                             cnt = 0
-                            flat = -L + 1
+                            flat = 0
                     else:
                         flat += 1
         else:    
@@ -139,3 +140,4 @@ for tc in range(1, int(input())+1):
 # 2
 # 1
 # 9
+# 16
