@@ -5,7 +5,7 @@ for tc in range(1, int(input())+1):
     list_a = list(map(int, input().split()))
     list_b = list(map(int, input().split()))
 
-
+    list_a.sort()
     res = 0
     for b in list_b:
         # if b > list_a[-1]: break
@@ -17,7 +17,7 @@ for tc in range(1, int(input())+1):
             while l <= r:
                 if list_a[m] == b:
                     res += 1; break
-                elif list_a[l] <= b < list_a[m]:
+                elif b < list_a[m]:
                     r = m - 1
                     m = (l + r) // 2
                     if check != -1:
@@ -25,7 +25,8 @@ for tc in range(1, int(input())+1):
                         else: check = 0
                     else:
                         check = 0
-                elif list_a[m] < b <= list_a[r]:
+                # elif list_a[m] < b <= list_a[r]:
+                else:
                     l = m + 1
                     m = (l + r) // 2
                     if check != -1:
