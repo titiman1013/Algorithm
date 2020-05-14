@@ -1,0 +1,37 @@
+import sys; sys.stdin = open('binary search.txt', 'r')
+
+for tc in range(1, int(input())+1):
+    N, M = map(int, input().split())
+    list_a = list(map(int, input().split()))
+    list_b = list(map(int, input().split()))
+
+
+    res = 0
+    for b in list_b:
+        # if b > list_a[-1]: break
+        if b in list_a:
+            l = 0
+            r = len(list_a) - 1
+            m = (l + r) // 2
+            check = -1
+            while l <= r:
+                if list_a[m] == b:
+                    res += 1; break
+                elif list_a[l] <= b < list_a[m]:
+                    r = m - 1
+                    m = (l + r) // 2
+                    if check != -1:
+                        if check == 0: break
+                        else: check = 0
+                    else:
+                        check = 0
+                elif list_a[m] < b <= list_a[r]:
+                    l = m + 1
+                    m = (l + r) // 2
+                    if check != -1:
+                        if check == 1: break
+                        else: check = 1
+                    else:
+                        check = 1
+    
+    print(f'#{tc} {res}')
