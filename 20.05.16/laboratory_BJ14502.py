@@ -8,6 +8,7 @@ dy = [0, 0, -1, 1]
 
 def wall_create(wall):
     global arr_copy
+    # arr_copy를 global선언해주지 않으면 arr_copy를 지역변수로 새로 할당하고 함수내에서만 사용하고 함수가 끝나면 증발한다
     arr_copy = copy.deepcopy(arr)
     # print(arr_copy)
     for x, y in wall:
