@@ -1,4 +1,4 @@
-import sys; sys.stdin = open('3.txt', 'r')
+import sys; sys.stdin = open('laboratory3.txt', 'r')
 from collections import deque
 from itertools import combinations
 import copy
@@ -28,7 +28,7 @@ def check(virus, wall):
             nx = x + dx[k]
             ny = y + dy[k]
             if 0 <= nx < N and 0 <= ny < N:
-                if lab[nx][ny] == 0:
+                if lab[nx][ny] == 0 or lab[nx][ny] == '0':
                     # print((nx, ny))
                     if lab[x][y] == '0':
                         lab[nx][ny] = 1
@@ -40,19 +40,19 @@ def check(virus, wall):
                             cnt = lab[nx][ny]
                             # if cnt > res:
                             #     return
-                elif lab[nx][ny] == '0':
-                    for k in range(4):
-                        tx = nx + dx[k]
-                        ty = ny + dy[k]
-                        if 0 <= tx < N and 0 <= ty < N:
-                            if lab[tx][ty] == 0:
-                                lab[tx][ty] = lab[x][y] + 1
-                                que.append((tx, ty))
-                                if lab[tx][ty] > cnt:
-                                    cnt = lab[tx][ty]
+                # elif lab[nx][ny] == '0':
+                #     for k in range(4):
+                #         tx = nx + dx[k]
+                #         ty = ny + dy[k]
+                #         if 0 <= tx < N and 0 <= ty < N:
+                #             if lab[tx][ty] == 0:
+                #                 lab[tx][ty] = lab[x][y] + 1
+                #                 que.append((tx, ty))
+                #                 if lab[tx][ty] > cnt:
+                #                     cnt = lab[tx][ty]
                                     # if cnt > res:
                                     #     return
-        if lab[x][y] == 0:
+        if lab[x][y] == '0':
             lab[x][y] = '2'
 
     for i in range(N):
