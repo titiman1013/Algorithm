@@ -1,6 +1,6 @@
 import sys; sys.stdin = open('calculate.txt', 'r')
 
-#
+# #
 # def check(number, cnt):
 #     global res
 
