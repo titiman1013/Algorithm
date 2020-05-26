@@ -1,10 +1,10 @@
 import sys; sys.stdin = open('password create.txt' ,'r')
 
 def search(cnt, _sum, use):
-    if cnt == 4:
+    if cnt == L:
         consonant = 0
         vowel = 0
-        for i in range(4):
+        for i in range(L):
             if _sum[i] == 'a' or _sum[i] == 'e' or _sum[i] == 'i' or _sum[i] == 'o' or _sum[i] == 'u':
                 vowel += 1
             else:
