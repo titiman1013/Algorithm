@@ -25,7 +25,7 @@ for i in range(5):
     for j in range(5):
         go(i, j, 1, arr[i][j])
 
-print(res_list)
+# print(res_list)
 print(len(res_list))
 
 
