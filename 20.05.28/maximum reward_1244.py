@@ -67,3 +67,9 @@ import sys; sys.stdin = open('maximum reward.txt', 'r')
 #     # print(list_reward)
 
 #     print(f'#{tc} {res}')
+
+
+
+# 
+for tc in range(1, int(input())+1):
+    
