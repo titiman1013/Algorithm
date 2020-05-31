@@ -66,7 +66,8 @@ def check(cnt, color, _sum):
 
     if cnt == N:
         if _sum < res:
-            res = _sum
+            if color == 2:
+                res = _sum
         return
 
     if cnt == 0:
@@ -79,6 +80,7 @@ def check(cnt, color, _sum):
         blue = 0
         red = 0
         for i in range(M):
+            # print(cnt, i)
             if arr[cnt][i] == 'W':
                 white += 1
             elif arr[cnt][i] == 'B':
@@ -87,9 +89,23 @@ def check(cnt, color, _sum):
                 red += 1
 
         if color == 0:
-            pass
+            # if white > blue:
+                
+            # elif white < blue:
+            #     pass
+            # elif white == blue:
+            #     pass
+            check(cnt+1, color, _sum+blue+red)
+            check(cnt+1, color+1, _sum+white+red)
         elif color == 1:
-            pass
+            # if blue > red:
+            #     pass
+            # elif blue < red:
+            #     pass
+            # elif blue == red:
+            #     pass
+            check(cnt+1, color, _sum+white+red)
+            check(cnt+1, color+1, _sum+white+blue)
         else:
             _sum += white + blue
             check(cnt+1, color, _sum)
@@ -101,6 +117,9 @@ def check(cnt, color, _sum):
 for tc in range(1, int(input())+1):
     N, M = map(int, input().split())
     arr = [input() for _ in range(N)]
+    # print(arr[0][4])
 
-    res = 0
+    res = 1000000
     check(0, 0, 0)
+
+    print(f'#{tc} {res}')
