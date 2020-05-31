@@ -111,3 +111,61 @@ from collections import deque
 #                 res_subtree += 1
 
 #     print(f'#{tc} {res_ancester} {res_subtree}')
+
+
+
+#
+def ancester_search(num, ancester_list):
+    que = deque()
+    que.append(num)
+
+    while que:
+        number = que.popleft()
+        for i in range(1, len(gansun), 2):
+            if gansun[i] == number:
+                ancester_list.append(gansun[i-1])
+                que.append(gansun[i-1])
+    
+    # return
+
+
+
+
+for tc in range(1, int(input())+1):
+    V, E, num1, num2 = map(int, input().split())
+    # V: 정점수, E: 간선수, num1: 정점번호1, num2: 정점번호2
+ 
+    arr = [[0] * V for _ in range(V)]
+    gansun = list(map(int, input().split()))
+    for i in range(0, len(gansun), 2):
+        arr[gansun[i]-1][gansun[i+1]-1] = 1
+    
+    num1_ancester = []
+    num2_ancester = []
+    ancester_search(num1, num1_ancester)
+    ancester_search(num2, num2_ancester)
+
+    # print('check_point')
+
+    res_ancester = 0
+    stop_machine = 0
+    for i in range(len(num1_ancester)):
+        if stop_machine:
+            break
+        for j in range(len(num2_ancester)):
+            if num1_ancester[i] == num2_ancester[j]:
+                res_ancester = num1_ancester[i]
+                stop_machine = 1
+                break
+
+    res_subtree = 1
+    que = deque()
+    que.append(res_ancester)
+    while que:
+        number = que.popleft()
+        for i in range(0, len(gansun), 2):
+            if gansun[i] == number:
+                que.append(gansun[i+1])
+                res_subtree += 1
+
+    print(f'#{tc} {res_ancester} {res_subtree}')
