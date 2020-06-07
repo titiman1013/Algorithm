@@ -1,4 +1,4 @@
-import sys; sys.stdin = open('IAMFLUG.txt', 'r')
+import sys; sys.stdin = open('test1.txt', 'r')
 
 for tc in range(1, int(input())+1):
     arr = input()
@@ -10,6 +10,7 @@ for tc in range(1, int(input())+1):
     sound = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0}
     for i in range(len(arr)):
         if stop_machine:
+            # print('stop machine active')
             break
 
         if arr[i] == 'c':
@@ -18,21 +19,24 @@ for tc in range(1, int(input())+1):
                 sound[0] += 1
                 waiting -= 1
             else:
-                res += 1
                 # sound['c'] += 1
                 sound[0] += 1
+                res += 1
         elif arr[i] == 'k':
+            sound[4] += 1
             temp = 0
-            for j in range(len(sound)-1):
+            for j in range(len(sound)):
                 if sound[j]:
                     temp += 1
                 else:
                     stop_machine += 1
                     res = -1
+                    # print('break active')
                     break
-            if temp == 4:
+            # print('here is down')
+            if temp == 5:
                 # print('check')
-                for k in range(len(sound)-1):
+                for k in range(len(sound)):
                     sound[k] -= 1
                 waiting += 1
         else:
@@ -41,19 +45,22 @@ for tc in range(1, int(input())+1):
                 if sound[0]:
                     sound[1] += 1
                 else:
-                    stop_machine += 1
+                    # stop_machine += 1
+                    res = -1
                     break
             elif arr[i] == 'o':
                 if sound[0] and sound[1]:
                     sound[2] += 1
                 else:
-                    stop_machine += 1
+                    # stop_machine += 1
+                    res = -1
                     break
             elif arr[i] == 'a':
                 if sound[0] and sound[1] and sound[2]:
                     sound[3] += 1
                 else:
-                    stop_machine += 1
+                    # stop_machine += 1
+                    res = -1
                     break
     
         # print(sound)
