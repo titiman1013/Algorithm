@@ -30,17 +30,37 @@ for tc in range(1, int(input())+1):
                     stop_machine += 1
                     res = -1
                     break
-            if temp == 5:
-                for k in range(len(sound)):
+            if temp == 4:
+                # print('check')
+                for k in range(len(sound)-1):
                     sound[k] -= 1
                 waiting += 1
         else:
             # sound[arr[i]] += 1
             if arr[i] == 'r':
-                sound[1] += 1
+                if sound[0]:
+                    sound[1] += 1
+                else:
+                    stop_machine += 1
+                    break
             elif arr[i] == 'o':
-                sound[2] += 1
+                if sound[0] and sound[1]:
+                    sound[2] += 1
+                else:
+                    stop_machine += 1
+                    break
             elif arr[i] == 'a':
-                sound[3] += 1
+                if sound[0] and sound[1] and sound[2]:
+                    sound[3] += 1
+                else:
+                    stop_machine += 1
+                    break
+    
+        # print(sound)
+
+    for i in range(len(sound)):
+        if sound[i]:
+            res = -1
+            break
 
     print(f'#{tc} {res}')
