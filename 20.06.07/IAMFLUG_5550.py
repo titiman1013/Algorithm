@@ -1,4 +1,4 @@
-import sys; sys.stdin = open('test1.txt', 'r')
+import sys; sys.stdin = open('IAMFLUG.txt', 'r')
 
 for tc in range(1, int(input())+1):
     arr = input()
@@ -25,8 +25,8 @@ for tc in range(1, int(input())+1):
         elif arr[i] == 'k':
             sound[4] += 1
             temp = 0
-            for j in range(len(sound)):
-                if sound[j]:
+            for j in range(len(sound)-1):
+                if sound[j] >= sound[4]:
                     temp += 1
                 else:
                     stop_machine += 1
@@ -34,7 +34,7 @@ for tc in range(1, int(input())+1):
                     # print('break active')
                     break
             # print('here is down')
-            if temp == 5:
+            if temp == 4:
                 # print('check')
                 for k in range(len(sound)):
                     sound[k] -= 1
@@ -42,21 +42,21 @@ for tc in range(1, int(input())+1):
         else:
             # sound[arr[i]] += 1
             if arr[i] == 'r':
-                if sound[0]:
+                if sound[0] > sound[1]:
                     sound[1] += 1
                 else:
                     # stop_machine += 1
                     res = -1
                     break
             elif arr[i] == 'o':
-                if sound[0] and sound[1]:
+                if sound[0] > sound[2] and sound[1] > sound[2]:
                     sound[2] += 1
                 else:
                     # stop_machine += 1
                     res = -1
                     break
             elif arr[i] == 'a':
-                if sound[0] and sound[1] and sound[2]:
+                if sound[0] > sound[3] and sound[1] > sound[3] and sound[2] > sound[3]:
                     sound[3] += 1
                 else:
                     # stop_machine += 1
