@@ -21,3 +21,5 @@ for tc in range(1, int(input())+1):
                 print(nums[j][-k-1], end='')
             break
         print('')
+
+# *zip() 방법으로 배열회전이 가능
