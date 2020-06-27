@@ -36,3 +36,5 @@ for tc in range(1, 11):
         res = 1
 
     print(f'#{tc} {res}')
+
+# 코드 길이 줄여보기!
