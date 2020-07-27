@@ -1,7 +1,19 @@
 import sys; sys.stdin = open('subscriber war.txt', 'r', encoding="UTF-8")
 
 for tc in range(1, int(input())+1):
-    N, A, B = map(int, input().split())
+    N_temp, A_temp, B_temp = input().split()
+    if N_temp == '\u200b\u200b\u200b\u200b\u200b\u200b\u200b100':
+        N = 100
+    else:
+        N = int(N_temp)
+    if A_temp == '\u200b\u200b\u200b\u200b\u200b\u200b\u200b100':
+        A = 100
+    else:
+        A = int(A_temp)
+    if B_temp == '\u200b\u200b\u200b\u200b\u200b\u200b\u200b100':
+        B = 100
+    else:
+        B = int(B_temp)
 
     max_sub = 0
     min_sub = 0
