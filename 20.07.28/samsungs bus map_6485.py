@@ -6,11 +6,12 @@ for tc in range(1, int(input())+1):
         bus.append(list(map(int, input().split())))
 
     res = []
-    for p in range(1, int(input())+1):
+    for p in range(int(input())):
         res.append(0)
+        station = int(input())
         for i in range(len(bus)):
-            if bus[i][0] <= p <= bus[i][1]:
-                res[p-1] += 1
+            if bus[i][0] <= station <= bus[i][1]:
+                res[p] += 1
     
     print(f'#{tc}', end=" ")
     for i in range(len(res)):
