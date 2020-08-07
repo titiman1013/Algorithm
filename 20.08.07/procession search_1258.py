@@ -34,7 +34,7 @@ for tc in range(1, int(input())+1):
             if box_size[i][0] < box_size[i+1][0]:
                 continue
             elif box_size[i][0] == box_size[i+1][0]:
-                if box_size[i][1] < box_size[i+1][0]:
+                if box_size[i][1] < box_size[i+1][1]:
                     continue
             box_size[i], box_size[i+1] = box_size[i+1], box_size[i]
 
