@@ -284,7 +284,7 @@ for tc in range(1, int(input()) + 1):
                         res += temp_sand
                     blowed_sand += temp_sand
                 arr[x - 1][y] = 0
-                if x - 2 <                                                                                0:
+                if x - 2 < 0:
                     res += (sand - blowed_sand)
                 else:
                     arr[x - 2][y] += (sand - blowed_sand)
