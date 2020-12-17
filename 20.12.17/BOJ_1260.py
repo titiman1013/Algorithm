@@ -3,7 +3,7 @@ from collections import deque
 
 # 두 정점 사이에 여러 개의 간선이 있을 수 있다고 해서 +1식으로 계산해주었는데
 # 어차피 한 번 들렀던 곳은 추가해주지 않으니 -1 계산보다는 0으로 바꿔주는것이 옳다
-# +1식으로 계산하면 dfs에서는 들렀던 곳을 다시 들릴 수 있는 불상사가 발생
+# -1식으로 계산하면 dfs에서는 들렀던 곳을 다시 들릴 수 있는 불상사가 발생
 
 def dfs():
     graph = [[0] * N for _ in range(N)]
@@ -45,6 +45,8 @@ def bfs():
             result.append(x + 1)
         for k in range(N):
             if graph[x][k] >= 1:
+                # 여기는 -1 로 계산해도 상관이 없음
+                # 너비우선은 확산형식이라 출력 순서에 영향을 미치지 않음
                 graph[x][k] = 0
                 graph[k][x] = 0
                 q.append(k)
