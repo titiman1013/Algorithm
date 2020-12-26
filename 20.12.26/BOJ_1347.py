@@ -76,3 +76,7 @@ for i in range(height):
     for j in range(width):
         print(map_list[i][j], end='')
     print()
+
+
+
+# 나중에 전체배열 101로 만들어서 시작점 50, 50 으로 풀어보기
