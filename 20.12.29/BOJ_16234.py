@@ -1,6 +1,9 @@
 import sys; sys.stdin = open('text1.txt', 'r')
 from collections import deque
 
+# 차이나는 지역을 한번에 읽고 모두 인구이동 하는것이 +1
+# 그리고 한번 더 다 읽어서 차이나는지 확인하고 한번에 모두 인구이동
+# 반복
 
 dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
 
