@@ -66,6 +66,7 @@ for tc in range(1, int(input()) + 1):
     operators = create_operator()
 
     select_operators = list(permutations(operators, N - 1))
+    select_operators = list(set(select_operators))
     min_res, max_res = calc()
     print(max_res)
     print(min_res)
