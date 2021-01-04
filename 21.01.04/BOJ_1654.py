@@ -3,7 +3,8 @@ from collections import Counter
 
 def binary_search(temp_arr):
     # start, end
-    s, e = 0, max(temp_arr)
+    # s, e = 0, max(temp_arr)
+    s, e = 0, 2 ** 31
 
     while s <= e:
         temp = 0
