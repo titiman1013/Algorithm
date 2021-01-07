@@ -22,11 +22,28 @@
 
 # best solve
 
-from collections import Counter
+# from collections import Counter
+
+# def solution(participant, completion):
+#     answer = Counter(participant) - Counter(completion)
+#     return list(answer.keys())[0]
+
+
+
+# hash solve
 
 def solution(participant, completion):
-    answer = Counter(participant) - Counter(completion)
-    return list(answer.keys())[0]
+    answer = ''
+    temp = 0
+    dic = {}
+    for part in participant:
+        dic[hash(part)] = part
+        temp += int(hash(part))
+    for com in completion:
+        temp -= hash(com)
+    answer = dic[temp]
+
+    return answer
 
 
 
