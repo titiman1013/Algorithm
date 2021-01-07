@@ -1,6 +1,19 @@
 def solution(phone_book):
-    answer = True
-    return answer
+    for i in range(len(phone_book)):
+        for j in range(len(phone_book)):
+            if i != j and len(phone_book[i]) <= len(phone_book[j]):
+                cnt = 0
+                for p in range(len(phone_book[i])):
+                    if phone_book[i][p] == phone_book[j][p]:
+                        cnt += 1
+                if cnt == len(phone_book[i]):
+                    return False
+    
+    return True
+    
+    
+    # answer = True
+    # return answer
 
 
 
