@@ -28,10 +28,30 @@
 def solution(distance, rocks, n):
     answer = 0
 
-    
+    rocks.sort()
+    rocks.append(distance)
+    s, e = 0, distance
+
+    while s <= e:
+        m = (s + e) // 2
+        pre = 0
+        mins = distance
+        cnt = 0
+
+        for i in range(len(rocks)):
+            if rocks[i] - pre < m:
+                cnt += 1
+            else:
+                mins = min(mins, rocks[i] - pre)
+                pre = rocks[i]
+
+        if cnt > n:
+            e = m - 1
+        else:
+            answer = mins
+            s = m + 1
 
     return answer
-
 
 
 
