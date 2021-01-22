@@ -8,15 +8,15 @@ def solution(scoville, K):
 
     min_val = scoville[0]
     while min_val < K:
+        if len(scoville) < 2:
+            answer = -1
+            break
         val1 = heapq.heappop(scoville)
         val2 = heapq.heappop(scoville)
         val3 = val1 + val2 * 2
         heapq.heappush(scoville, val3)
-        min_val = scoville[0]
         answer += 1
-        if len(scoville) < 2:
-            answer = -1
-            break
+        min_val = scoville[0]
 
     return answer
 
