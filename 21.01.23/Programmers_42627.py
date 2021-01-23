@@ -1,5 +1,12 @@
+import heapq
+
 def solution(jobs):
     answer = 0
+
+    time = 0
+    heap = []
+    
+
     return answer
 
 
