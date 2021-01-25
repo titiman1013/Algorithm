@@ -1,5 +1,15 @@
+def manufacture(array, i, j, k):
+    arr = sorted(array[i - 1:j])
+    return arr[k - 1]
+
+
+
 def solution(array, commands):
     answer = []
+
+    for i, j, k in commands:
+        answer.append(manufacture(array, i, j, k))
+
     return answer
 
 
