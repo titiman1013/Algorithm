@@ -1,32 +1,31 @@
-# from collections import Counter
-
-# def solution(citations):
-#     answer = 0
-
-#     citations.sort(reverse=True)
-#     dic = Counter(citations)
-    
-#     cnt = 0
-#     for key, val in dic.items():
-#         cnt += val
-#         if key >= cnt :
-#             answer = key
-#             break
-
-#     return answer
-
-
-#
+from collections import Counter
 
 def solution(citations):
     answer = 0
 
     citations.sort(reverse=True)
-    for idx, citation in enumerate(citations):
-        if idx + 1 <= citation:
-            answer = idx + 1
+    dic = Counter(citations)
+    
+    cnt = 0
+    for key, val in dic.items():
+        cnt += val
+        if key >= cnt :
+            answer = cnt
 
     return answer
+
+
+#
+
+# def solution(citations):
+#     answer = 0
+
+#     citations.sort(reverse=True)
+#     for idx, citation in enumerate(citations):
+#         if idx + 1 <= citation:
+#             answer = idx + 1
+
+#     return answer
 
 
 
