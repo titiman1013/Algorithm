@@ -28,35 +28,19 @@
 
 #
 
-# def solution(n, lost, reserve):
-#     answer = 0
-
-#     reserve_set = set(reserve) - set(lost)
-#     lost_set = set(lost) - set(reserve)
-
-#     for p in reserve_set:
-#         if p - 1 in lost_set:
-#             lost_set.remove(p - 1)
-#         elif p + 1 in lost_set:
-#             lost_set.remove(p + 1)
-
-#     return answer + n - len(lost_set)
-
 def solution(n, lost, reserve):
     answer = 0
 
-    reserve = set(reserve) - set(lost)
-    lost = set(lost) - set(reserve)
-    print(reserve, lost)
+    reserve_set = set(reserve) - set(lost)
+    lost_set = set(lost) - set(reserve)
 
-    for p in reserve:
-        if p - 1 in lost:
-            lost.remove(p - 1)
-        elif p + 1 in lost:
-            lost.remove(p + 1)
+    for p in reserve_set:
+        if p - 1 in lost_set:
+            lost_set.remove(p - 1)
+        elif p + 1 in lost_set:
+            lost_set.remove(p + 1)
 
-    return answer + n - len(lost)
-
+    return answer + n - len(lost_set)
 
 
 
