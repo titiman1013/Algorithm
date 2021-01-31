@@ -1,4 +1,4 @@
-import sys; sys.stdin = open('text1.txt', 'r')
+import sys; sys.stdin = open('1217.txt', 'r')
 
 def reculsive(N, M, res):
     global answer
