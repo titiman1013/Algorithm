@@ -16,9 +16,28 @@ for tc in range(1, int(input()) + 1):
 
     print(f'#{tc}')
     for i in range(N):
-        temp_90, temp_180, temp_270 = '', '', ''
+        # 방법1
+        # temp_90, temp_180, temp_270 = '', '', ''
+        # for j in range(N):
+        #     temp_90 += str(arr_90[i][j])
+        #     temp_180 += str(arr_180[i][j])
+        #     temp_270 += str(arr_270[i][j])
+        # print(temp_90, temp_180, temp_270)
+        
+        # 방법2
         for j in range(N):
-            temp_90 += str(arr_90[i][j])
-            temp_180 += str(arr_180[i][j])
-            temp_270 += str(arr_270[i][j])
-        print(temp_90, temp_180, temp_270)
+            if j == N - 1:
+                print(arr_90[i][j], end=' ')
+            else:
+                print(arr_90[i][j], end='')
+        for j in range(N):
+            if j == N - 1:
+                print(arr_180[i][j], end=' ')
+            else:
+                print(arr_180[i][j], end='')
+        for j in range(N):
+            if j == N - 1:
+                print(arr_270[i][j], end=' ')
+            else:
+                print(arr_270[i][j], end='')
+        print()
