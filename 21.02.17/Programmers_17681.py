@@ -1,5 +1,28 @@
+def transform_binary(n, arr):
+    bin = []
+    for val in arr:
+        temp = str(format(val, 'b'))
+        if len(temp) < n:
+            temp = '0' * (n - len(temp)) + temp
+        bin.append(temp)
+    return bin
+
+
 def solution(n, arr1, arr2):
     answer = []
+
+    temp_map1 = transform_binary(n, arr1)
+    temp_map2 = transform_binary(n, arr2)
+    
+    for i in range(n):
+        string = ''
+        for j in range(n):
+            if temp_map1[i][j] == '1' or temp_map2[i][j] == '1':
+                string += '#'
+            else:
+                string += ' '
+        answer.append(string)
+
     return answer
 
 
