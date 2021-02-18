@@ -1,5 +1,12 @@
 def solution(arr):
     answer = []
+
+    for val in arr:
+        if answer:
+            if answer[-1] == val:
+                continue
+        answer.append(val)
+
     return answer
 
 
