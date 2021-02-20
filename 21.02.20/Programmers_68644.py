@@ -1,5 +1,15 @@
+from itertools import combinations
+
 def solution(numbers):
     answer = []
+
+    temp = set()
+    combs = list(combinations(numbers, 2))
+    for comb in combs:
+        temp.add(sum(comb))
+    answer = list(temp)
+    answer.sort()
+
     return answer
 
 
