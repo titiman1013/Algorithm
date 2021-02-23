@@ -5,12 +5,14 @@ def solution(arr, divisor):
         if val % divisor == 0:
             answer.append(val)
     
-    if len(answer):
-        answer.sort()
-    else:
-        answer.append(-1)
+    # if len(answer):
+    #     answer.sort()
+    # else:
+    #     answer.append(-1)
 
-    return answer
+    # return answer
+
+    return sorted(answer) or [-1]
 
 
 
