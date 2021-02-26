@@ -1,6 +1,8 @@
 def solution(s):
     answer = ''
-    return answer
+
+    return "".join(sorted(list(map(str, s)), reverse=True))
+
 
 
 
