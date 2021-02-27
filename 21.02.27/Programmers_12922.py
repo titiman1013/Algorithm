@@ -1,15 +1,18 @@
 def solution(n):
-    answer = ''
+    # answer = ''
 
-    for i in range(1, n+1):
-        if i % 2:
-            answer += "수"
-        else:
-            answer += "박"
+    # for i in range(1, n+1):
+    #     if i % 2:
+    #         answer += "수"
+    #     else:
+    #         answer += "박"
 
-    return answer
+    # return answer
     
-    return "수박" * (n//2) + "수" * (n%2)
+    # return "수박" * (n//2) + "수" * (n%2)
+
+    s = "수박" * n
+    return s[:n]
 
 
 
