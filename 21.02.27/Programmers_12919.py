@@ -1,12 +1,14 @@
 def solution(seoul):
     answer = ''
 
-    for idx, val in enumerate(seoul):
-        if val == "Kim":
-            answer = "김서방은 " + str(idx) + "에 있다"
-            break
+    # for idx, val in enumerate(seoul):
+    #     if val == "Kim":
+    #         answer = "김서방은 " + str(idx) + "에 있다"
+    #         break
 
-    return answer
+    # return answer
+
+    return "김서방은 {}에 있다".format(seoul.index("Kim"))
 
 
 
