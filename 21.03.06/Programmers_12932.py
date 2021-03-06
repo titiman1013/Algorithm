@@ -1,6 +1,9 @@
 def solution(n):
     answer = []
-    return answer
+
+    answer = list(map(int, str(n)))
+
+    return answer[::-1]
 
 
 
