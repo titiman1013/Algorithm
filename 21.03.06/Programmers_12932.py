@@ -1,9 +1,11 @@
 def solution(n):
-    answer = []
+    # answer = []
 
-    answer = list(map(int, str(n)))
+    # answer = list(map(int, str(n)))
 
-    return answer[::-1]
+    # return answer[::-1]
+
+    return list(map(int, reversed(str(n))))
 
 
 
