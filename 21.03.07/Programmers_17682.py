@@ -33,6 +33,9 @@ def solution(dartResult):
     return answer
 
 
+# re.compile 정규식 확인하기
+
+
 
 
 print(solution("1S2D*3T"))
