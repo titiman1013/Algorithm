@@ -18,23 +18,37 @@
 
 # dp
 
+# def solution(land):
+#     answer = 0
+
+#     dp = [[0] * 4 for _ in range(len(land))]
+#     dp[0] = land[0]
+#     for i in range(1, len(land)):
+#         for j in range(len(land[i])):
+#             if j:
+#                 if j < len(land[i]) - 1:
+#                     dp[i][j] = max(max(dp[i - 1][:j]), max(dp[i - 1][j + 1:])) + land[i][j]
+#                 else:
+#                     dp[i][j] = max(dp[i - 1][:j]) + land[i][j]
+#             else:
+#                 dp[i][j] = max(dp[i - 1][j + 1:]) + land[i][j]
+#     answer = max(dp[-1])
+
+#     return answer
+
+
+# best dp
+
 def solution(land):
     answer = 0
 
-    dp = [[0] * 4 for _ in range(len(land))]
-    dp[0] = land[0]
     for i in range(1, len(land)):
         for j in range(len(land[i])):
-            if j:
-                if j < len(land[i]) - 1:
-                    dp[i][j] = max(max(dp[i - 1][:j]), max(dp[i - 1][j + 1:])) + land[i][j]
-                else:
-                    dp[i][j] = max(dp[i - 1][:j]) + land[i][j]
-            else:
-                dp[i][j] = max(dp[i - 1][j + 1:]) + land[i][j]
-    answer = max(dp[-1])
+            land[i][j] = max(land[i - 1][:j] + land[i - 1][j + 1:]) + land[i][j]
+    answer = max(land[-1])
 
     return answer
+
 
 
 
