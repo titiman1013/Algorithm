@@ -1,6 +1,10 @@
 def solution(s):
     answer = ''
 
+    s_lst = list(map(int, s.split()))
+    s_lst.sort()
+    answer += str(s_lst[0]) + ' ' + str(s_lst[-1])
+
     return answer
 
 
