@@ -1,6 +1,15 @@
 def solution(arr1, arr2):
     answer = [[]]
 
+    l, m, n = len(arr1), len(arr1[0]), len(arr2[0])
+    answer = [[0] * n for _ in range(l)]
+    for i in range(l):
+        for j in range(n):
+            temp = 0
+            for p in range(m):
+                temp += arr1[i][p] * arr2[p][j]
+            answer[i][j] = temp
+
     return answer
 
 
