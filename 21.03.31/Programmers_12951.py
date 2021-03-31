@@ -1,6 +1,18 @@
 def solution(s):
     answer = ''
 
+    up = True
+    for string in s:
+        if string == ' ':
+            answer += ' '
+            up = True
+        else:
+            if up:
+                answer += string.upper()
+                up = False
+            else:
+                answer += string.lower()
+
     return answer
 
 
