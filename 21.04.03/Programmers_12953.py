@@ -20,22 +20,56 @@
 
 # false
 
+# def solution(arr):
+#     answer = float('inf')
+
+#     results = []
+#     for i in range(min(arr), 0, -1):
+#         for val in arr:
+#             tmp = i
+#             if val % i == 0:
+#                 tmp *= val // i
+#             else:
+#                 tmp *= val
+#         results.append(tmp)
+            
+#     answer = min(results)
+
+#     return answer
+
+
+# false
+
+def calc(arr, i):
+    for idx, val in enumerate(arr):
+        if val % i == 0:
+            arr[idx] = val // i
+
+    result = i
+    for val in arr:
+        result *= val
+    
+    return result
+
+
 def solution(arr):
     answer = float('inf')
 
-    results = []
-    for i in range(min(arr), 0, -1):
+    for i in range(2, max(arr) + 1):
+        cnt = 0
         for val in arr:
-            tmp = i
             if val % i == 0:
-                tmp *= val // i
-            else:
-                tmp *= val
-        results.append(tmp)
-            
-    answer = min(results)
+                cnt += 1
+        if cnt >= 2:
+            tmp = calc(arr, i)
+            if tmp < answer:
+                answer = tmp
+    
+    if answer == float('inf'):
+        answer = calc(arr, 1)
 
     return answer
+
 
 
 
