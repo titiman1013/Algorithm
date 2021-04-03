@@ -73,29 +73,44 @@
 
 # clear
 
-def GCD(num1, num2):
-    x, y = min(num1, num2), max(num1, num2)
-    while y:
-        x, y = y, x % y
-    return x
+# def GCD(num1, num2):
+#     x, y = min(num1, num2), max(num1, num2)
+#     while y:
+#         x, y = y, x % y
+#     return x
 
 
-def LCM(num1, num2):
-    x, y = min(num1, num2), max(num1, num2)
-    res = (x * y) // GCD(x, y)
-    return res
+# def LCM(num1, num2):
+#     x, y = min(num1, num2), max(num1, num2)
+#     res = (x * y) // GCD(x, y)
+#     return res
 
 
-def solution(arr):
-    answer = 0
+# def solution(arr):
+#     answer = 0
 
-    while len(arr) > 1:
-        a, b = arr.pop(), arr.pop()
-        arr.append(LCM(a, b))
+#     while len(arr) > 1:
+#         a, b = arr.pop(), arr.pop()
+#         arr.append(LCM(a, b))
 
+#     answer = arr[0]
+
+#     return answer
+
+
+# gcd module
+ 
+from math import gcd
+
+
+def solution(arr):      
     answer = arr[0]
+    for n in arr:
+        answer = n * answer // gcd(n, answer)
 
     return answer
+
+
 
 
 
