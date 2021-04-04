@@ -1,6 +1,26 @@
 def solution(n, words):
     answer = []
 
+    used_words = set()
+    cur_word = ''
+    turns = [0] * n
+    for idx, word in enumerate(words):
+        if idx == 0:
+            turns[0] += 1
+            cur_word = word[-1]
+            used_words.add(word)
+        else:
+            turns[idx % n] += 1
+            if word[0] == cur_word and word not in used_words:
+                cur_word = word[-1]
+                used_words.add(word)
+            else:
+                answer.append(idx % n + 1)
+                answer.append(turns[idx % n])
+                break
+    else:
+        answer = [0, 0]
+
     return answer
 
 
