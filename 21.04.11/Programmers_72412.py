@@ -1,5 +1,18 @@
+# time over
+
 def solution(info, query):
     answer = []
+
+    for condition in query:
+        lang, pos, career, food_score = map(str, condition.split(' and '))
+        food, score = map(str, food_score.split())
+        cnt = 0
+        for resume in info:
+            # applicant
+            a_lang, a_pos, a_career, a_food, a_score = map(str, resume.split())
+            if (lang == '-' or lang == a_lang) and (pos == '-' or pos == a_pos) and (career == '-' or career == a_career) and (food == '-' or food == a_food) and int(score) <= int(a_score):
+                cnt += 1
+        answer.append(cnt)
 
     return answer
 
