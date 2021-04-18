@@ -40,7 +40,7 @@
 // }
 
 
-// 
+// solve1
 
 function solution(n, arr1, arr2) {
   var answer = [];
@@ -88,6 +88,37 @@ function solution(n, arr1, arr2) {
 
   return answer;
 }
+
+
+// solve2
+
+function solution(n, arr1, arr2) {
+  var answer = [];
+
+  const room1 = [];
+  const room2 = [];
+  for (let idx = 0; idx < n; idx++) {
+      let binary1 = arr1[idx].toString(2).padStart(n, '0');
+      let binary2 = arr2[idx].toString(2).padStart(n, '0');
+      room1.push(binary1);
+      room2.push(binary2);
+  }
+
+  for (let i = 0; i < n; i++) {
+      let line = '';
+      for (let j = 0; j < n; j++) {
+          if (room1[i][j] | room2[i][j]) {
+              line += '#';
+          } else {
+              line += ' ';
+          }
+      }
+      answer.push(line);
+  }
+
+  return answer;
+}
+
 
 
 
