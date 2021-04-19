@@ -1,5 +1,24 @@
+function combination(answer, source, target, n, r, count) {
+  if (r === 0) answer.push(target);
+  else if (n === 0 || n < r) return;
+  else {
+    target += source[count];
+    combination(source, Object.assign('', target), n - 1, r - 1, count + 1);
+    target = target.slice(0, -1);
+    combination(source, Object.assign('', target), n - 1, r, count + 1);
+  }
+}
+
+
 function solution(orders, course) {
   var answer = [];
+
+  const orderedCount = new Map();
+  for (let i = 0; i < course.length; i++) {
+    combination(answer, orders, '', orders.length, course[i], 0);
+  }
+  
+  answer.sort();
 
   return answer;
 }
