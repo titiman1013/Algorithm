@@ -1,5 +1,7 @@
-import sys; sys.stdin = open('1221.txt', 'r')
+import sys; sys.stdin = open('4676.txt', 'r')
 
 for tc in range(1, int(input()) + 1):
-    test_case, N = map(str, input().split())
-    arr = list(input().split())
+    strings = input()
+    H = int(input())
+    positions = list(map(int, input().split()))
+    answer = ''
