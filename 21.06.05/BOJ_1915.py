@@ -60,3 +60,16 @@ def check(N, M, x, y, answer):
                 answer = tmp
     
     return answer
+
+
+
+N, M = map(int, input().split())
+arr = [list(map(int, input().strip('\n'))) for _ in range(N)]
+
+answer = 0
+for i in range(N):
+    for j in range(M):
+        if arr[i][j]:
+            answer = check(N, M, i, j, answer)
+
+print(answer)
