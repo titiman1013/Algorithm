@@ -1,9 +1,18 @@
+from collections import Counter
+
 def solution(nums):
     answer = 0
 
-
+    species = Counter(nums)
+    select_cnt = len(nums) // 2
+    if len(species) >= select_cnt:
+        answer = select_cnt
+    else:
+        answer = len(species)
 
     return answer
+
+    # return min(len(nums) // 2, len(set(nums)))
 
 
 
