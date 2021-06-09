@@ -39,6 +39,43 @@
 
 # false
 
+# def code_reform(codes):
+#     codes = codes.replace('C#', 'c')
+#     codes = codes.replace('D#', 'd')
+#     codes = codes.replace('F#', 'f')
+#     codes = codes.replace('G#', 'g')
+#     codes = codes.replace('A#', 'a')
+
+#     return codes
+
+
+# def solution(m, musicinfos):
+#     answer = ''
+
+#     m = code_reform(m)
+
+#     play_time = 0
+#     for musicinfo in musicinfos:
+#         start, end, title, codes = map(str, musicinfo.split(','))
+#         codes = code_reform(codes)
+
+#         if len(m) <= len(codes):
+#             if m not in codes * 2: continue
+#         else:
+#             if codes not in m * 2: continue
+
+#         if answer:
+#             if play_time >= (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:])): continue
+        
+#         answer = title
+#         play_time = (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:]))
+        
+#     return answer if answer else '(None)'
+
+
+
+#
+
 def code_reform(codes):
     codes = codes.replace('C#', 'c')
     codes = codes.replace('D#', 'd')
@@ -54,21 +91,28 @@ def solution(m, musicinfos):
 
     m = code_reform(m)
 
-    play_time = 0
+    max_play_time = 0
     for musicinfo in musicinfos:
         start, end, title, codes = map(str, musicinfo.split(','))
         codes = code_reform(codes)
 
-        if len(m) <= len(codes):
-            if m not in codes * 2: continue
-        else:
-            if codes not in m * 2: continue
-
-        if answer:
-            if play_time >= (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:])): continue
-        
-        answer = title
         play_time = (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:]))
+        idx = 0
+        play_codes = ''
+        play = play_time
+        while play:
+            play_codes += codes[idx]
+            if idx + 1 == len(codes):
+                idx = -1
+            idx += 1
+            play -= 1
+        
+        if m in play_codes:
+            if answer:
+                if max_play_time >= play_time: continue
+            max_play_time = play_time
+            answer = title
+                    
         
     return answer if answer else '(None)'
 
