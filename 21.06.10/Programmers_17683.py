@@ -1,8 +1,38 @@
+# runtime error
+
 def solution(m, musicinfos):
-    answer = ''
+    answer = '(None)'
 
-
-
+    play_time = 0
+    for musicinfo in musicinfos:
+        start, end, title, codes = map(str, musicinfo.split(','))
+        for idx, code in enumerate(codes):
+            if code == m[0]:
+                cnt = 1
+                code_idx = idx
+                while cnt < len(m):
+                    # print(idx, cnt)
+                    if m[cnt] == codes[code_idx + cnt]:
+                        if code_idx + cnt >= len(codes) - 1:
+                            code_idx = -cnt - 1
+                        cnt += 1
+                    else:
+                        break
+                
+                else:
+                    if code_idx + cnt < len(codes):
+                        if codes[code_idx + cnt] == '#':
+                            continue
+                    
+                    if cnt == len(m):
+                        if answer == "(None)":
+                            answer = title
+                            play_time = (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:]))
+                        else:
+                            if play_time < (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:])):
+                                answer = title
+                                play_time = (int(end[:2]) - int(start[:2])) * 60 + (int(end[3:]) - int(start[3:]))
+                        
     return answer
 
 
