@@ -19,4 +19,4 @@ for start, end in lectures:
         heapq.heappop(heap)
         heapq.heappush(heap, end)
 
-print(answer)
+print(answer) 
