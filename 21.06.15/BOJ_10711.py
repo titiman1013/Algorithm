@@ -36,12 +36,12 @@ def wave(H, W):
                 else:
                     arr[x][y] = sand_cnt
                     continue
-
+ 
                 arr[x][y] = 0
                 corrosion = True
 
     return corrosion, arr
-
+ 
 
 
 for tc in range(1, int(input()) + 1):
