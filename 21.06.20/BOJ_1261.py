@@ -71,7 +71,40 @@ import sys; sys.stdin = open('1261.txt', 'r')
 
 # dijkstra
 
-import sys, heapq
+# import sys, heapq
+
+# input = sys.stdin.readline
+# dx, dy = [-1, 1, 0, 0], [0, 0, -1 ,1]
+
+# for tc in range(1, int(input()) + 1):
+#     M, N = map(int, input().split())
+#     maze = [list(map(int, input().strip())) for _ in range(N)]
+
+#     distance = [[float('inf')] * M for _ in range(N)]
+#     heap = []
+#     heapq.heappush(heap, (0, 0, 0))
+#     distance[0][0] = 0
+#     while heap:
+#         dis, x, y = heapq.heappop(heap)
+#         if x == N - 1 and y == M - 1: break
+#         for k in range(4):
+#             nx = x + dx[k]
+#             ny = y + dy[k]
+#             if 0 <= nx < N and 0 <= ny < M:
+#                 if distance[nx][ny] > dis + maze[nx][ny]:
+#                     distance[nx][ny] = dis + maze[nx][ny]
+#                     heapq.heappush(heap, (distance[nx][ny], nx, ny))
+
+#     print(distance[N - 1][M - 1])
+
+
+
+
+
+# bfs
+
+import sys
+from collections import deque
 
 input = sys.stdin.readline
 dx, dy = [-1, 1, 0, 0], [0, 0, -1 ,1]
@@ -80,19 +113,18 @@ for tc in range(1, int(input()) + 1):
     M, N = map(int, input().split())
     maze = [list(map(int, input().strip())) for _ in range(N)]
 
-    distance = [[float('inf')] * M for _ in range(N)]
-    heap = []
-    heapq.heappush(heap, (0, 0, 0))
-    distance[0][0] = 0
-    while heap:
-        dis, x, y = heapq.heappop(heap)
-        if x == N - 1 and y == M - 1: break
+    dp = [[float('inf')] * M for _ in range(N)]
+    deq = deque()
+    dp[0][0] = 0
+    deq.append((0, 0))
+    while deq:
+        x, y = deq.popleft()
         for k in range(4):
             nx = x + dx[k]
             ny = y + dy[k]
             if 0 <= nx < N and 0 <= ny < M:
-                if distance[nx][ny] > dis + maze[nx][ny]:
-                    distance[nx][ny] = dis + maze[nx][ny]
-                    heapq.heappush(heap, (distance[nx][ny], nx, ny))
-
-    print(distance[N - 1][M - 1])
+                if dp[nx][ny] > dp[x][y] + maze[nx][ny]:
+                    dp[nx][ny] = dp[x][y] + maze[nx][ny]
+                    deq.append((nx, ny))
+    
+    print(dp[N - 1][M - 1])
