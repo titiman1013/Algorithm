@@ -1,3 +1,4 @@
+from collections import defaultdict
 import sys; sys.stdin = open('1261.txt', 'r')
 
 # import sys, heapq
@@ -67,8 +68,6 @@ import sys; sys.stdin = open('1261.txt', 'r')
 
 
 
-
-
 # dijkstra
 
 # import sys, heapq
@@ -99,9 +98,38 @@ import sys; sys.stdin = open('1261.txt', 'r')
 
 
 
-
-
 # bfs
+
+# import sys
+# from collections import deque
+
+# input = sys.stdin.readline
+# dx, dy = [-1, 1, 0, 0], [0, 0, -1 ,1]
+
+# for tc in range(1, int(input()) + 1):
+#     M, N = map(int, input().split())
+#     maze = [list(map(int, input().strip())) for _ in range(N)]
+
+#     dp = [[float('inf')] * M for _ in range(N)]
+#     deq = deque()
+#     dp[0][0] = 0
+#     deq.append((0, 0))
+#     while deq:
+#         x, y = deq.popleft()
+#         for k in range(4):
+#             nx = x + dx[k]
+#             ny = y + dy[k]
+#             if 0 <= nx < N and 0 <= ny < M:
+#                 if dp[nx][ny] > dp[x][y] + maze[nx][ny]:
+#                     dp[nx][ny] = dp[x][y] + maze[nx][ny]
+#                     deq.append((nx, ny))
+    
+#     print(dp[N - 1][M - 1])
+
+
+
+
+# 진짜 bfs
 
 import sys
 from collections import deque
@@ -113,7 +141,7 @@ for tc in range(1, int(input()) + 1):
     M, N = map(int, input().split())
     maze = [list(map(int, input().strip())) for _ in range(N)]
 
-    dp = [[float('inf')] * M for _ in range(N)]
+    dp = [[-1] * M for _ in range(N)]
     deq = deque()
     dp[0][0] = 0
     deq.append((0, 0))
@@ -123,8 +151,12 @@ for tc in range(1, int(input()) + 1):
             nx = x + dx[k]
             ny = y + dy[k]
             if 0 <= nx < N and 0 <= ny < M:
-                if dp[nx][ny] > dp[x][y] + maze[nx][ny]:
-                    dp[nx][ny] = dp[x][y] + maze[nx][ny]
-                    deq.append((nx, ny))
+                if dp[nx][ny] == -1:
+                    if maze[nx][ny] == 0:
+                        deq.appendleft([nx,ny])
+                        dp[nx][ny] = dp[x][y]
+                    elif maze[nx][ny] == 1:
+                        deq.append([nx,ny])
+                        dp[nx][ny] = dp[x][y] + 1
     
     print(dp[N - 1][M - 1])
