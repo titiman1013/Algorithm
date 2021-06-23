@@ -1,5 +1,16 @@
+from collections import defaultdict
+
+
 def solution(enroll, referral, seller, amount):
     answer = []
+
+    in_recommends = defaultdict(str)
+    for i in range(len(enroll)):
+        if referral[i] != '-':
+            in_recommends[enroll[i]] = referral[i]
+
+    print(in_recommends)
+
     return answer
 
 
