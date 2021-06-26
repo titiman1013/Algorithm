@@ -51,3 +51,38 @@ for idx in range(N * M):
 
 answer = len(set(find(val) for val in range(N * M)))
 print(answer)
+
+
+
+
+# # 
+
+# import sys
+
+
+# input = sys.stdin.readline
+# dir = {
+#     'L': (0, -1),
+#     'R': (0, 1),
+#     'U': (-1, 0),
+#     'D': (1, 0),
+# }
+
+# def move(x, y, group_num):
+#     dx, dy = dir[board[x][y]]
+#     nx, ny = x + dx, y + dy
+    
+
+
+
+# N, M = map(int, input().split())
+# board = list(input().rstrip('\n') for _ in range(N))
+
+# answer = 0
+# cnt = 0
+# for i in range(N):
+#     for j in range(M):
+#         cnt += 1
+#         answer += move(i, j, cnt)
+
+# print(answer)
