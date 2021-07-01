@@ -1,5 +1,44 @@
+in_name = [" ", ".", "-"]
+
 def solution(files):
     answer = []
+
+    file_list = []
+    for idx, file in enumerate(files):
+        file_info = []
+        file_idx = 0
+        tmp_string = ""
+        string_type = 'HEAD'
+        while file_idx != len(file):
+            if string_type == 'HEAD':
+                if file[file_idx].isalpha() or file[file_idx] in in_name:
+                    tmp_string += file[file_idx]
+                else:
+                    file_info.append(tmp_string.lower())
+                    string_type = 'NUMBER'
+                    tmp_string = file[file_idx]
+                    if file_idx + 1 == len(file):
+                        file_info.append(int(tmp_string))
+
+            elif string_type == 'NUMBER':
+                if file[file_idx].isdecimal():
+                    tmp_string += file[file_idx]
+                    if file_idx + 1 == len(file):
+                        file_info.append(int(tmp_string))
+                else:
+                    file_info.append(int(tmp_string))
+                    break
+
+            file_idx += 1
+
+        file_info.append(idx)
+        file_list.append(file_info)
+
+    file_list.sort()
+
+    for head, num, idx in file_list:
+        answer.append(files[idx])
+
     return answer
 
 
